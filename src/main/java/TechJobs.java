@@ -120,7 +120,7 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         if (someJobs.isEmpty()) {
-            System.out.println("No Results");
+            System.out.printf("No Results");
         } else {
             for (Object job : someJobs) {
                 HashMap<String, String> jobDetails = (HashMap<String, String>) job;
