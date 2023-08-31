@@ -31,14 +31,9 @@ public class TechJobs {
         while (true) {
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
-            //if user types x of not a valid x choice, break loop
             if (actionChoice == null) {
                 break;
             } else if (actionChoice.equals("list")) {
-                // if user types list
-                //set column choice to result of getUserSelection
-                    // getUserSelection takes a string (menuHeader) and a HashMap (columnChoices)
-                    //
 
                 String columnChoice = getUserSelection("List", columnChoices);
 
@@ -126,15 +121,14 @@ public class TechJobs {
 
         if (someJobs.isEmpty()) {
             System.out.println("No Results");
-            //not currently printing
         } else {
             for (Object job : someJobs) {
                 HashMap<String, String> jobDetails = (HashMap<String, String>) job;
-                System.out.println("*****");
+                System.out.println("\n*****");
                 for (Map.Entry<String, String> column : jobDetails.entrySet()){
                     System.out.println(column.getKey() + ": " + column.getValue());
                 }
-                System.out.println("***** \n");
+                System.out.println("*****");
             }
         }
 
