@@ -31,10 +31,14 @@ public class TechJobs {
         while (true) {
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
-
+            //if user types x of not a valid x choice, break loop
             if (actionChoice == null) {
                 break;
             } else if (actionChoice.equals("list")) {
+                // if user types list
+                //set column choice to result of getUserSelection
+                    // getUserSelection takes a string (menuHeader) and a HashMap (columnChoices)
+                    //
 
                 String columnChoice = getUserSelection("List", columnChoices);
 
@@ -96,7 +100,7 @@ public class TechJobs {
 
             if (in.hasNextInt()) {
                 choiceIdx = in.nextInt();
-                in.nextLine();
+                in.nextLine(); // deals with the return after the number entered
             } else {
                 String line = in.nextLine();
                 boolean shouldQuit = line.equals("x");
@@ -120,6 +124,19 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.isEmpty()) {
+            System.out.println("No Results");
+            //not currently printing
+        } else {
+            for (Object job : someJobs) {
+                HashMap<String, String> jobDetails = (HashMap<String, String>) job;
+                System.out.println("*****");
+                for (Map.Entry<String, String> column : jobDetails.entrySet()){
+                    System.out.println(column.getKey() + ": " + column.getValue());
+                }
+                System.out.println("***** \n");
+            }
+        }
+
     }
 }
