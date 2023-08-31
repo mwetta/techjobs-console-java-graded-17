@@ -98,7 +98,7 @@ public class JobData {
             for (Map.Entry<String, String> details : job.entrySet()) {
                 if (details.getValue().toLowerCase().contains(value.toLowerCase())) {
                     jobs.add(job);
-                    continue;
+                    break;
                 }
             }
         }
